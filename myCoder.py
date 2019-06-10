@@ -53,12 +53,18 @@ class coder:
 
     def urlenc(self,string):                #urlencode函数
         string=str(string)
-        return urllib.parse.quote(string)   
+        res=urllib.parse.quote(string)
+        while res[-3:]=='%0A':
+            res=res[:-3]
+        return res
 
 
     def urldec(self,string):                #urldecode函数
         string=str(string)
-        return urllib.parse.unquote(string)
+        res=urllib.parse.unquote(string)
+        while res[-3:]=='%0A':
+            res=res[:-3]
+        return res
 
 
     def md5enc(self,string):                #计算md5值，32位小写字母

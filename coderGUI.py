@@ -70,8 +70,12 @@ class Gui:
         sc2.pack(side=tkinter.RIGHT, fill=tkinter.Y,in_=frmt2)
         sc2.config(command=self.text2.yview)
 
+        #t1=threading.Thread(target=self.win.mainloop)
+        #t1.daemon=True
+        #t1.start()
         self.win.mainloop()
 
 
-app=Gui()
-app.display()
+if __name__ == '__main__':
+    app=Gui()
+    app.display()
